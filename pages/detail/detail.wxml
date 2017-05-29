@@ -1,0 +1,24 @@
+<view class="detail-container">
+  <view class="photo-box">
+    <image style="background-color: #eeeeee;" mode="aspectFit" src="{{details[id].photo}}"></image>
+  </view>
+  <view class="details-info">
+    <view class="name">{{details[id].name}}</view>
+    <view class="title">联系人：{{details[id].title}}</view>
+    <view class="phone">电话：{{details[id].phone}}</view>
+    <view class="content">{{details[id].content}}</view>
+  </view>
+  <view class="photo-box">
+    <image style="background-color: #eeeeee;" mode="aspectFit" src="{{details[id].picture}}"></image>
+  </view>
+  <view class="zan-box" bindtap="{{tapMe}}">
+    <image src="/image/zan.png" class="zan-icon"></image>
+    <text>赞{{zanCounts}}(功能尚在开发中)</text>
+  </view>
+  <view class="det-btns">
+    <button type="primary" bindtap="tapMe" loading="{{loading}}">点赞</button>
+  </view>
+  <toast hidden="{{toast1Hidden}}" duration="500" bindchange="bindToast">
+    点赞成功
+  </toast>
+</view>

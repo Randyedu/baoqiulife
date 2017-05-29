@@ -1,0 +1,30 @@
+<!--index.wxml-->
+<!--一个块级区域-->
+<view class="welcome-container" animation="{{animationData}}" style="display:{{welcome ? 'flex' : 'none'}}">
+  <image src="/image/welcome-lc.jpg" background-size="cover" class="wel-pic"></image>
+</view>
+<view class="shz-container" style="opacity:{{welcome ? 0 : 1}};display:{{!welcome ? 'block' : 'none'}}">
+  <view class="swiper-box">
+    <swiper indicator-dots="{{indicatorDots}}" vertical="{{vertical}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+      <block wx:for-items="{{swiperImgs}}" wx:key="item.id">
+        <swiper-item>
+          <image src="{{item.src}}" style="width:100%" mode="scaleToFill"></image>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <view ontouchstart="ontouchStart" ontouchmove="ontouchMove" ontouchend="ontouchEnd">
+    <view class="hero-list" data-index="{{index}}" data-name="{{item.name}}">
+      <view wx:for="{{hero}}" class="item" wx:key="item.id">
+        <navigator url="./../detail/detail?id={{index}}">
+          <view class="nav-item">
+            <image class="sm-photo" src="{{item.photo}}" background-size="cover" />
+            <text class="name">{{item.name}}</text>
+            <image class="arrow-r" src="/image/arrowright.png" background-size="cover" />
+          </view>
+        </navigator>
+
+      </view>
+    </view>
+  </view>
+</view>
